@@ -2,71 +2,58 @@ package aplicacion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import mates.Funciones;
+import mates.Mates;
 
 public class Principal {
     public static void main(String[] args) {
-        // Ejercicio 1: Suma de los primeros n números
-        int n = 9;
-        System.out.println("Suma de los primeros " + n + " números: " + Funciones.suma(n));
 
-        // Ejercicio 2: Cálculo del factorial de un número
-        int numero = 5;
-        System.out.println("Factorial de " + numero + ": " + Funciones.calcularFactorial(numero));
+        // Ejercicio 1: Suma de los primeros 5 números naturales
+        System.out.println("Suma de los primeros 5 números naturales: " + Mates.suma(5));  // Resultado: 15
 
-        // Ejercicio 3: Cálculo de la potencia de un número
-        int base = 2;
-        int exponente = 3;
-        System.out.println("Potencia de " + base + " elevado a " + exponente + ": " + Funciones.calcularPotencia(base, exponente));
+        // Ejercicio 2: Factorial de 5
+        System.out.println("Factorial de 5: " + Mates.calcularFactorial(5));  // Resultado: 120
 
-        // Ejercicio 4: Suma de los elementos de una lista
+        // Ejercicio 3: 2 elevado a 3
+        System.out.println("2 elevado a 3: " + Mates.calcularPotencia(2, 3));  // Resultado: 8
+
+        // Ejercicio 4: Suma de elementos de la lista [1, 2, 3, 4]
         ArrayList<Integer> lista = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-        System.out.println("Suma de los elementos de la lista: " + Funciones.calcularSumaElementosLista(lista));
+        System.out.println("Suma de los elementos de la lista: " + Mates.calcularSumaElementosLista(lista, 0));  // Resultado: 10
 
-        // Ejercicio 5: Cálculo de la media aritmética de una lista
-        System.out.println("Media aritmética de la lista: " + Funciones.calcularMediaAritmetica(lista));
+        // Ejercicio 5: Media aritmética de la lista [1, 2, 3, 4]
+        System.out.println("Media aritmética de la lista: " + Mates.calcularMediaAritmetica(lista));  // Resultado: 2.5
 
-        // Ejercicio 6: Cálculo de la desviación típica de una lista
-        System.out.println("Desviación típica de la lista: " + Funciones.calcularDesviacionTipica(convertirArrayListAArray(lista), exponente, exponente, exponente));
+        // Ejercicio 6: Desviación típica de la lista {1, 2, 3, 4}
+        int[] listaNumeros = {1, 2, 3, 4};
+        System.out.println("Desviación típica de la lista: " + Mates.calcularDesviacionTipica(listaNumeros, 0, 0, 0));  // Resultado: 1.118
 
-        // Ejercicio 7: Suma de los números pares hasta n
-        System.out.println("Suma de los números pares hasta " + n + ": " + Funciones.calcularSumaPares(n));
+        // Ejercicio 7: Suma de los números pares hasta 9
+        System.out.println("Suma de los números pares hasta 9: " + Mates.calcularSumaPares(9));  // Resultado: 20
 
-        // Ejercicio 8: Suma de los elementos pares de una lista
-        System.out.println("Suma de los elementos pares de la lista: " + Funciones.calcularSumaElementosParesLista(lista));
+        // Ejercicio 8: Suma de los elementos pares de la lista [1, 2, 3, 4]
+        System.out.println("Suma de los elementos pares de la lista: " + Mates.calcularSumaElementosParesLista(lista, 0));  // Resultado: 6
 
-        // Ejercicio 9: Obtener lista de números pares de una lista
-        System.out.println("Lista de números pares: " + Funciones.obtenerListaPares(convertirArrayListAArray(lista)));
+        // Ejercicio 9: Obtener lista de pares de [1, 2, 3, 4, 6]
+        int[] listaPares = {1, 2, 3, 4, 6};
+        ArrayList<Integer> listaDePares = Mates.obtenerListaPares(listaPares, 0);
+        System.out.println("Lista de números pares: " + listaDePares);  // Resultado: [2, 4, 6]
 
-        // Ejercicio 10: Obtener lista de números pares hasta n
-        System.out.println("Lista de números pares hasta " + n + ": " + Funciones.obtenerListaParesHastaN(n));
+        // Ejercicio 10: Lista de números pares hasta 9
+        ArrayList<Integer> listaParesHasta9 = Mates.obtenerListaParesHastaN(9);
+        System.out.println("Lista de números pares hasta 9: " + listaParesHasta9);  // Resultado: [8, 6, 4, 2]
 
         // Ejercicio 11: Producto escalar de dos listas
-        ArrayList<Integer> lista2 = new ArrayList<>(Arrays.asList(6, 7, 8, 9, 10));
-        int scalar = 2; // Example scalar value
-        System.out.println("Producto escalar de las listas: " + Funciones.calcularProductoEscalar(convertirArrayListAArray(lista), convertirArrayListAArray(lista2), scalar));
+        int[] lista1 = {1, 2, 3};
+        int[] lista2 = {2, 4, 6};
+        System.out.println("Producto escalar de las listas: " + Mates.calcularProductoEscalar(lista1, lista2, 2));  // Resultado: 28
 
-        // Ejercicio 4 -Integral
-        double resultadoIntegral = Funciones.integralEXCuadrado(0, 1, 0.1);
-        System.out.println("Resultado de la integral: " + resultadoIntegral);
+        // Ejercicio 12: Fibonacci de 5
+        System.out.println("Fibonacci de 5: " + Mates.fibonacci(5));  // Resultado: 5
 
-        // Ejercicio 6   Suma códigos
-        String cadena = "Hola";
-        System.out.println("Suma de códigos de '" + cadena + "': " + Funciones.sumaCodigos(cadena));
+        // Ejercicio 13: Cociente Fibonacci(13) / Fibonacci(12)
+        System.out.println("Cociente Fibonacci(13) / Fibonacci(12): " + Mates.cocienteFibonacci(13, 12));  // Resultado: Aproximadamente 1.618
 
-        // Ejercicio 7  Cifrado César
-        String texto = "Hoy es viernes";
-        int desplazamiento = 3;
-        System.out.println("Texto cifrado: " + Funciones.cifrarCadena(texto, desplazamiento));
-
-        // Ejercicio 8 - Filtrar códigos pares
-        String entrada = "Mañana no hay clases";
-        System.out.println("Caracteres con código par: " + Funciones.conCodigoPar(entrada));
-    }
-
-    // Método para convertir ArrayList<Integer> a int[]
-    public static int[] convertirArrayListAArray(ArrayList<Integer> lista) {
-        return lista.stream().mapToInt(i -> i).toArray();
+        // Ejercicio 14: Relación entre Fibonacci y la razón áurea
+        Mates.relacionFibonacci(10);  // Resultado: Imprime los cocientes y la diferencia con la razón áurea
     }
 }

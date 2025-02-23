@@ -55,5 +55,24 @@ public class Principal {
 
         // Ejercicio 14: Relación entre Fibonacci y la razón áurea
         Mates.relacionFibonacci(10);  // Resultado: Imprime los cocientes y la diferencia con la razón áurea
+
+        // Ejercicio 4 -Integral
+        double resultadoIntegral = Mates.integralEXCuadrado(0, 1, 0.1);
+        System.out.println("Resultado de la integral: " + resultadoIntegral);
+
+
+        // Ejercicio 6   Suma códigos
+        String cadena = "Hola";
+        System.out.println("Suma de códigos de '" + cadena + "': " + Mates.sumaCodigos(cadena));
+
+        // Ejercicio 7  Cifrado César
+        String texto = "Hoy es viernes";
+        int desplazamiento = 3;
+        System.out.println("Texto cifrado: " + Mates.cifrarCadena(texto, desplazamiento));
+
+        // Ejercicio 8 - Filtrar códigos pares
+        String entrada = "Mañana no hay clases";
+        System.out.println("Caracteres con código par: " + Mates.conCodigoPar(entrada));
     }
+
 }

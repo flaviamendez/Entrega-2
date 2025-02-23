@@ -4,6 +4,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Mates {
+
+    //Ejercicio 1
+    /*
+    *   La recursividad consiste en que una función se llame a sí misma.
+    *   Tiene dos partes: el caso base y el caso recursivo.
+    *   El caso base es la condición que detiene la recursividad.
+    *   El caso recursivo es la llamada a la función dentro de la función.
+    *   La recursividad es útil para resolver problemas que se pueden dividir en subproblemas más pequeños.
+    *   La recursividad puede ser menos eficiente que un enfoque iterativo en algunos casos.
+     */
+
+
+    //Ejercici 2 
     // 1. La suma 0 + 1 + 2 + ... + n.
     public static int suma(int n) {
         if (n == 0) {
@@ -163,6 +176,97 @@ public class Mates {
                     i, i - 1, cociente, diferencia);
         }
     }
+
+    //Ejercicio 3 
+    /*
+    *El problema de las Torres de Hanoi consiste en mover una torre de discos de un poste a otro, respetando las siguientes reglas:
+    *   1. Solo se puede mover un disco a la vez.
+    *   2. Un disco nunca puede estar sobre otro disco de menor tamaño.
+    *   3. Solo se pueden mover los discos de la parte superior de una torre.
+    *   Para resolver el problema de las Torres de Hanoi, se puede utilizar un algoritmo recursivo que consiste en mover n-1 discos 
+    *   de la torre de origen a la torre auxiliar, luego mover el disco n de la torre de origen a la torre de destino, y finalmente mover
+    *   los n-1 discos de la torre auxiliar a la torre de destino. Este proceso se repite recursivamente hasta que todos los discos estén en la torre de destino.
+    */
+
+
+    //Ejercicio 4
+    // Método recursivo para calcular la integral de e^(x^2)
+    public static double integralEXCuadrado(double limInf, double limSup, double h) {
+        // Caso base: Si limInf ha alcanzado o sobrepasado limSup, termina la recursión
+        if (limInf >= limSup) {
+            return 0;
+        }
+        
+        // Calculamos el valor de e^(x^2) para el valor actual de limInf
+        double suma = Math.exp(Math.pow(limInf, 2));
+        
+        // Llamada recursiva con limInf aumentado por el paso h
+        return suma * h + integralEXCuadrado(limInf + h, limSup, h);
+    }
+    //Ejercicio 5
+    /*
+     * La ejecución de un método recursivo puede provocar una excepción de desbordamiento
+     * de pila StackOverflowError si la recursión es demasiado profunda. En un método recursivo,
+     * cada llamada se apila en la pila de llamadas, y si el número de llamadas excede el límite
+     * de la pila, se produce el error. En cambio, una versión iterativa usa bucles y no acumula
+     * llamadas en la pila, por lo que no sufre este problema.
+     */
+
+    //Ejericcio 6
+    // Método recursivo para sumar los códigos ASCII de una cadena
+    public static int sumaCodigos(String str) {
+        // Caso base: si la cadena está vacía, retornamos 0
+        if (str.isEmpty()) {
+            return 0;
+        }
+        // Llamada recursiva: sumamos el valor ASCII del primer carácter y el resto de la cadena
+        return str.charAt(0) + sumaCodigos(str.substring(1));
+    }
+
+    //Ejercicio 7
+    // Método recursivo para cifrar una cadena con el cifrado de César
+    public static String cifrarCadena(String str, int desplazamiento) {
+        // Caso base: si la cadena está vacía, devolvemos la cadena vacía
+        if (str.isEmpty()) {
+            return "";
+        }
+
+        // Obtenemos el primer carácter
+        char c = str.charAt(0);
+
+        // Si el carácter es una letra minúscula
+        if (Character.isLowerCase(c)) {
+            c = (char) ((c - 'a' + desplazamiento) % 26 + 'a');
+        }
+        // Si el carácter es una letra mayúscula
+        else if (Character.isUpperCase(c)) {
+            c = (char) ((c - 'A' + desplazamiento) % 26 + 'A');
+        }
+
+        // Llamada recursiva: ciframos el resto de la cadena
+        return c + cifrarCadena(str.substring(1), desplazamiento);
+    }
+
+    //Ejercicio 8
+    public static String conCodigoPar(String str) {
+        // Caso base: si la cadena está vacía, terminamos
+        if (str.isEmpty()) {
+            return "";
+        }
+
+        // Cogemos el primer caracter de la cadena
+        char firstChar = str.charAt(0);
+
+        // Comprobamos si el código ASCII de ese primer caracter es par
+        if (firstChar % 2 == 0) {
+            return firstChar + conCodigoPar(str.substring(1));
+        } else {
+            return conCodigoPar(str.substring(1));
+        }
+    }
+
+    
+
 
 
 }
